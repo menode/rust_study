@@ -1,3 +1,4 @@
+workspace = { members = ["restaurant"] }
 [package]
 name = "rust_study"
 version = "0.1.0"
