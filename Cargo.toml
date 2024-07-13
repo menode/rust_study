@@ -15,9 +15,13 @@ rust-version = "1.60"
 tauri-build = { version = "1.5.3", features = [] }
 
 [dependencies]
-serde_json = "1.0"
-serde = { version = "1.0", features = ["derive"] }
 tauri = { version = "1.7.0", features = [] }
+tokio = { version = "1.29.1", features = ["full"] }
+paho-mqtt = "0.11.1"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+serde_yaml = "0.9.21"
+
 
 [features]
 # this feature is used for production builds or when `devPath` points to the filesystem and the built-in dev server is disabled.
