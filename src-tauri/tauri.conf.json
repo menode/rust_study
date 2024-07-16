@@ -3,10 +3,10 @@
     "beforeBuildCommand": "pnpm run build",
     "beforeDevCommand": "pnpm run dev",
     "devPath": "http://localhost:3000",
-    "distDir": "../out"
+    "distDir": "./out"
   },
   "package": {
-    "productName": "tauri-demo",
+    "productName": "dd",
     "version": "0.1.0"
   },
   "tauri": {
@@ -57,7 +57,7 @@
         "fullscreen": false,
         "height": 600,
         "resizable": true,
-        "title": "demo",
+        "title": "nextjs-tauri-demo",
         "width": 800
       }
     ]

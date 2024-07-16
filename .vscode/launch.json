@@ -11,7 +11,7 @@
         "cargo": {
           "args": [
             "build",
-            "--manifest-path=./Cargo.toml",
+            "--manifest-path=./src-tauri/Cargo.toml",
             "--no-default-features"
           ]
         },
