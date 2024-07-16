@@ -1,65 +1,50 @@
 {
+  "productName": "tauri-app",
+  "version": "0.1.0",
+  "identifier": "com.tauri.dev",
   "build": {
-    "beforeBuildCommand": "pnpm run build",
+    "frontendDist": "../out",
+    "devUrl": "http://localhost:3000",
     "beforeDevCommand": "pnpm run dev",
-    "devPath": "http://localhost:3000",
-    "distDir": "./out"
+    "beforeBuildCommand": "pnpm run build"
   },
-  "package": {
-    "productName": "dd",
-    "version": "0.1.0"
-  },
-  "tauri": {
-    "allowlist": {
-      "all": false
-    },
-    "bundle": {
-      "active": true,
-      "category": "DeveloperTool",
-      "copyright": "",
-      "deb": {
-        "depends": []
-      },
-      "externalBin": [],
-      "icon": [
-        "icons/32x32.png",
-        "icons/128x128.png",
-        "icons/128x128@2x.png",
-        "icons/icon.icns",
-        "icons/icon.ico"
-      ],
-      "identifier": "com.tauri.dev",
-      "longDescription": "",
-      "macOS": {
-        "entitlements": null,
-        "exceptionDomain": "",
-        "frameworks": [],
-        "providerShortName": null,
-        "signingIdentity": null
-      },
-      "resources": [],
-      "shortDescription": "",
-      "targets": "all",
-      "windows": {
-        "certificateThumbprint": null,
-        "digestAlgorithm": "sha256",
-        "timestampUrl": ""
+  "plugins": {
+    "log": {
+      "level": "debug",
+      "file": {
+        "path": "./logs/app.log",
+        "level": "info",
+        "rotation": {
+          "size": 10485760,
+          "compress": true,
+          "retain": 3
+        }
       }
-    },
-    "security": {
-      "csp": null
-    },
-    "updater": {
-      "active": false
-    },
+    }
+  },
+  "app": {
     "windows": [
       {
-        "fullscreen": false,
+        "title": "tauri-app",
+        "width": 800,
         "height": 600,
         "resizable": true,
-        "title": "nextjs-tauri-demo",
-        "width": 800
+        "fullscreen": false
       }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
     ]
   }
 }
