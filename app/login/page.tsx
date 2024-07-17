@@ -3,13 +3,23 @@ import { useState } from "react";
 import Head from 'next/head';
 import Link from "next/link";
 
+import { trace, info, error, attachConsole } from '@tauri-apps/plugin-log';
 
-export default function  Login(){
+async function log(){
+    const detach = await attachConsole();
+    trace('Trace');
+    info('Info');
+    error('Error');
+    detach();
+
+}
+export default function Login(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     
     // detach the browser console from the log stream
     
+    log();
     
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
@@ -87,6 +97,7 @@ export default function  Login(){
           <div>
             <button
               type="submit"
+              onClick={log}
               className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
               Sign in

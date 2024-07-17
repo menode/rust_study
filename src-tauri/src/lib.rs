@@ -1,4 +1,4 @@
-use tauri::Manager;
+// use tauri::Manager;
 
 use tauri_plugin_log::{Target, TargetKind};
 
@@ -10,7 +10,7 @@ pub fn run() {
             // 打开调试工具
             // let main_window = app.get_webview_window("main").unwrap();
             // main_window.open_devtools();
-            let handle = app.handle();
+            // let handle = app.handle();
             // tauri_plugin_log::Builder::new()
             //     .targets([
             //         Target::new(TargetKind::Stdout),
