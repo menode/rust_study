@@ -17,7 +17,7 @@ impl fmt::Display for List {
             if count != 0 {
                 write!(f, ", ")?;
             }
-            write!(f, "{}", v)?;
+            write!(f, "{}:{}", count, v)?;
         }
 
         // 加上配对中括号，并返回一个 fmt::Result 值。
