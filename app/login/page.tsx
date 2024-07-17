@@ -1,16 +1,20 @@
 'use client';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Head from 'next/head';
 import Link from "next/link";
 
+import { invoke } from '@tauri-apps/api/tauri'
 import { trace, info, error, attachConsole } from '@tauri-apps/plugin-log';
 
 async function log(){
+  if (typeof window !== "undefined") {
+    // 安全地使用 @tauri-apps/api 或其他依赖于 window 的代码
     const detach = await attachConsole();
     trace('Trace');
     info('Info');
     error('Error');
     detach();
+}
 
 }
 export default function Login(){
@@ -20,6 +24,18 @@ export default function Login(){
     // detach the browser console from the log stream
     
     log();
+
+
+    let payload = {value:"test"};
+
+  useEffect(() => {
+    invoke('ping',{payload}).then((response) => {
+      console.log(response);
+    }).catch((error) => {
+      console.error(error)
+      });
+  }, []);
+
     
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
